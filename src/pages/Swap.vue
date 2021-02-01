@@ -80,7 +80,7 @@ import SwapPair from '@/components/swap/Pair.vue';
 const GAS_PRICE = process.env.APP_GAS_PRICE || '100000000000';
 const MAX_POOLS = 4;
 
-console.log(`TEST: ${GASGAS_PRICE}`);
+console.log(`TEST: ${GAS_PRICE}`);
 
 interface Pair {
     assetIn: string;

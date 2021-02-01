@@ -6,7 +6,7 @@
                     class="logo"
                     :src="logo"
                 >
-                <span class="title">Balancer Test 5</span>
+                <span class="title">Balancer Test 6</span>
             </div>
         </router-link>
         <div class="header-right">

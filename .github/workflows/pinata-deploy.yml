@@ -53,22 +53,28 @@ jobs:
         run: npm run build-pinata
         env:
           APP_CHAIN_ID: 42
-          APP_GAS_PRICE: 880000000000
+          APP_GAS_PRICE: 990000000000
 
       - name: Deploy Kovan
         run: ipfs-deploy ./dist -p pinata
         env:
           IPFS_DEPLOY_PINATA__API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__API_KEY }}
           IPFS_DEPLOY_PINATA__SECRET_API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__SECRET_API_KEY }}
+          IPFS_DEPLOY_CLOUDFLARE__API_TOKEN: ${{ secrets.IPFS_DEPLOY_CLOUDFLARE__API_TOKEN }}
+          IPFS_DEPLOY_CLOUDFLARE__ZONE: balancer.exchange
+          IPFS_DEPLOY_CLOUDFLARE__RECORD: _dnslink.kovan-test.balancer.exchange
 
-      - name: Build Mainnet
+      - name: Build Beta
         run: npm run build-pinata
         env:
           APP_CHAIN_ID: 1
-          APP_GAS_PRICE: 330000000000
+          APP_GAS_PRICE: 440000000000
 
-      - name: Deploy Mainnet
+      - name: Deploy Beta
         run: ipfs-deploy ./dist -p pinata
         env:
           IPFS_DEPLOY_PINATA__API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__API_KEY }}
           IPFS_DEPLOY_PINATA__SECRET_API_KEY: ${{ secrets.IPFS_DEPLOY_PINATA__SECRET_API_KEY }}
+          IPFS_DEPLOY_CLOUDFLARE__API_TOKEN: ${{ secrets.IPFS_DEPLOY_CLOUDFLARE__API_TOKEN }}
+          IPFS_DEPLOY_CLOUDFLARE__ZONE: balancer.exchange
+          IPFS_DEPLOY_CLOUDFLARE__RECORD: _dnslink.beta-test.balancer.exchange

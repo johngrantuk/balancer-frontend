@@ -62,4 +62,7 @@ jobs:
         run: npm run build-pinata
         env:
           APP_CHAIN_ID: 1
-          APP_GAS_PRICE: 100000000000
+          APP_GAS_PRICE: 220000000000
+
+      - name: Deploy Mainnet
+        run: ipfs-deploy ./dist

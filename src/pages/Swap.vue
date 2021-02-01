@@ -80,6 +80,8 @@ import SwapPair from '@/components/swap/Pair.vue';
 const GAS_PRICE = process.env.APP_GAS_PRICE || '100000000000';
 const MAX_POOLS = 4;
 
+console.log(`TEST: ${GASGAS_PRICE}`);
+
 interface Pair {
     assetIn: string;
     assetOut: string;
@@ -112,7 +114,7 @@ export default defineComponent({
         const pools = ref<Pool[]>([]);
 
         const isModalOpen = computed(() => store.state.ui.modal.asset.isOpen);
-        
+
         const account = computed(() => {
             const { connector, address } = store.state.account;
             if (!connector || !connector.id || !address) {
@@ -462,10 +464,10 @@ export default defineComponent({
 
         function getInitialPair(): Pair {
             const pair = Storage.getPair(config.chainId);
-            let assetIn = 
+            let assetIn =
                 router.currentRoute.value.params.assetIn as string ||
                 pair.inputAsset;
-            let assetOut = 
+            let assetOut =
                 router.currentRoute.value.params.assetOut as string ||
                 pair.outputAsset;
             if (isAddress(assetIn)) {

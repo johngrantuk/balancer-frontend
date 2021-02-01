@@ -45,11 +45,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install ipfs-deploy
+        run: npm install ipfs-deploy
+
       - name: Build Kovan
         run: npm run build-pinata
         env:
           APP_CHAIN_ID: 42
-          APP_GAS_PRICE: 100000000000
+          APP_GAS_PRICE: 770000000000
+
+      - name: Deploy Kovan
+        run: ipfs-deploy ./dist
 
       - name: Build Mainnet
         run: npm run build-pinata

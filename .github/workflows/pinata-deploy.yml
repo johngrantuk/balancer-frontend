@@ -21,13 +21,13 @@ jobs:
         run: npm install
 
       - name: Build Kovan
-        run: npm build-pinata
+        run: npm run build-pinata
         env:
           APP_CHAIN_ID: 42
           APP_GAS_PRICE: 100000000000
 
       - name: Build Mainnet
-        run: npm build-pinata
+        run: npm run build-pinata
         env:
           APP_CHAIN_ID: 1
           APP_GAS_PRICE: 100000000000
@@ -46,13 +46,13 @@ jobs:
         run: npm install
 
       - name: Build Kovan
-        run: npm build-pinata
+        run: npm run build-pinata
         env:
           APP_CHAIN_ID: 42
           APP_GAS_PRICE: 100000000000
 
       - name: Build Mainnet
-        run: npm build-pinata
+        run: npm run build-pinata
         env:
           APP_CHAIN_ID: 1
           APP_GAS_PRICE: 100000000000

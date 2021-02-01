@@ -1,0 +1,58 @@
+name: Pinata Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+    jobs:
+      deploy-master:
+        name: Deploy-Master
+
+        runs-on: ubuntu-latest
+
+        if: github.ref == 'refs/heads/master'
+
+        steps:
+          - uses: actions/checkout@v1
+
+          - name: Install dependencies
+            run: npm install
+
+          - name: Build Kovan
+            run: npm build-pinata
+            env:
+              APP_CHAIN_ID: 42
+              APP_GAS_PRICE: 100000000000
+
+          - name: Build Mainnet
+            run: npm build-pinata
+            env:
+              APP_CHAIN_ID: 1
+              APP_GAS_PRICE: 100000000000
+
+      deploy-develop:
+        name: Deploy-Develop
+
+        runs-on: ubuntu-latest
+
+        if: github.ref == 'refs/heads/develop'
+
+        steps:
+          - uses: actions/checkout@v1
+
+          - name: Install dependencies
+            run: npm install
+
+          - name: Build Kovan
+            run: npm build-pinata
+            env:
+              APP_CHAIN_ID: 42
+              APP_GAS_PRICE: 100000000000
+
+          - name: Build Mainnet
+            run: npm build-pinata
+            env:
+              APP_CHAIN_ID: 1
+              APP_GAS_PRICE: 100000000000
